@@ -1,0 +1,230 @@
+{
+  "corpus_version": "0.1.0",
+  "updated": "2026-07-14",
+  "note": "Seed corpus. Deliberately larger than the three demo cases need, so retrieval has to actually select. Designed to be grown by the clinician: add cards, add sources, do not touch code.",
+
+  "provenance_levels": {
+    "primary": "Encoded from the open-access primary publication. Citable as-is.",
+    "secondary_pending_verification": "Encoded from a peer-reviewed paper that REPRODUCES the primary's criteria, because the primary is paywalled. Believed correct, not yet checked against the source of record. The assistant must SHOW this stamp whenever it uses such a card. This is a to-do, not a defect — it is exactly the kind of gap the corpus is meant to close."
+  },
+
+  "sources": {
+    "eln22": {
+      "citation": "Döhner H, et al. Diagnosis and management of AML in adults: 2022 recommendations from an international expert panel on behalf of the ELN. Blood. 2022;140(12):1345-1377.",
+      "url": "https://ashpublications.org/blood/article/140/12/1345/485817",
+      "provenance": "secondary_pending_verification",
+      "encoded_from": "Criteria reproduced in the PETHEMA validation cohort paper, PMC10182047. The Blood original is paywalled (HTTP 403).",
+      "todo": "Replace with the primary PDF. The clinician will have it."
+    },
+    "who5": {
+      "citation": "Khoury JD, et al. The 5th edition of the WHO Classification of Haematolymphoid Tumours: Myeloid and Histiocytic/Dendritic Neoplasms. Leukemia. 2022;36:1703-1719.",
+      "url": "https://www.nature.com/articles/s41375-022-01613-1",
+      "provenance": "primary"
+    },
+    "icc22": {
+      "citation": "Arber DA, et al. International Consensus Classification of Myeloid Neoplasms and Acute Leukemias. Blood. 2022;140(11):1200-1228.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9479031/",
+      "provenance": "primary"
+    },
+    "eln-mrd-2021": {
+      "citation": "Heuser M, et al. 2021 Update on MRD in acute myeloid leukemia: a consensus document from the European LeukemiaNet MRD Working Party. Blood. 2021;138(26):2753-2767.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8718623/",
+      "provenance": "primary",
+      "todo": "SUPERSEDED by the 2025 ELN-DAVID MRD update (Blood 147(11):1147), which is paywalled. Cards below are from the 2021 consensus and must be re-checked against 2025."
+    },
+    "ipssm": {
+      "citation": "Bernard E, et al. Molecular International Prognostic Scoring System for Myelodysplastic Syndromes (IPSS-M). NEJM Evidence. 2022;1(7).",
+      "url": "https://evidence.nejm.org/doi/full/10.1056/EVIDoa2200008",
+      "provenance": "primary"
+    }
+  },
+
+  "cards": [
+    {
+      "id": "eln22-npm1-no-flt3",
+      "output": "prognosis",
+      "disease": ["AML"],
+      "genes": ["NPM1"],
+      "requires_absent": ["FLT3-ITD"],
+      "claim": "Mutated NPM1 WITHOUT FLT3-ITD is FAVOURABLE risk.",
+      "source": "eln22"
+    },
+    {
+      "id": "eln22-npm1-with-flt3",
+      "output": "prognosis",
+      "disease": ["AML"],
+      "genes": ["NPM1", "FLT3"],
+      "requires_present": ["NPM1", "FLT3"],
+      "claim": "Mutated NPM1 WITH FLT3-ITD is INTERMEDIATE risk.",
+      "source": "eln22"
+    },
+    {
+      "id": "eln22-allelic-ratio-abolished",
+      "output": "prognosis",
+      "disease": ["AML"],
+      "genes": ["FLT3"],
+      "claim": "ELN 2022 considers only the PRESENCE of FLT3-ITD, not its allelic ratio. The 2017 high/low allelic-ratio split (0.5 cutoff) no longer changes the risk tier. Reasons given: difficulty standardising the assay, the modifying effect of midostaurin, and the growing role of MRD in treatment decisions.",
+      "note_to_assistant": "Surface this card whenever a report quotes an FLT3-ITD allelic ratio. A clinician trained on ELN 2017 will reach for it, and it no longer does anything. This is a high-value thing for a second brain to say.",
+      "source": "eln22"
+    },
+    {
+      "id": "eln22-flt3-no-npm1",
+      "output": "prognosis",
+      "disease": ["AML"],
+      "genes": ["FLT3"],
+      "requires_absent": ["NPM1"],
+      "claim": "FLT3-ITD without mutated NPM1 (and without adverse-risk lesions) is INTERMEDIATE risk.",
+      "source": "eln22"
+    },
+    {
+      "id": "eln22-mds-related-genes",
+      "output": "prognosis",
+      "disease": ["AML"],
+      "genes": ["ASXL1", "BCOR", "EZH2", "RUNX1", "SF3B1", "SRSF2", "STAG2", "U2AF1", "ZRSR2"],
+      "claim": "Mutation in any of ASXL1, BCOR, EZH2, RUNX1, SF3B1, SRSF2, STAG2, U2AF1 or ZRSR2 confers ADVERSE risk, in the absence of favourable-risk markers. These are the myelodysplasia-related mutations newly added to the adverse group in ELN 2022.",
+      "caveat": "The PETHEMA validation cohort observed that patients with a SINGLE MDS-related mutation behaved more like intermediate risk, and suggested this may be refined in future. Worth saying out loud when only one is present.",
+      "source": "eln22"
+    },
+    {
+      "id": "eln22-tp53",
+      "output": "prognosis",
+      "disease": ["AML"],
+      "genes": ["TP53"],
+      "claim": "TP53 mutation confers ADVERSE risk. TP53 mutation with a complex karyotype is adverse.",
+      "gap": "The VAF threshold used by ELN 2022 did not come through the secondary source cleanly. ICC 2022 uses VAF >10% (see icc22-tp53). A TP53 mutation just under threshold is a real case where the answer flips, so the assistant must NOT assert an ELN VAF cutoff until this card is verified against the primary.",
+      "source": "eln22"
+    },
+    {
+      "id": "eln22-complex-karyotype",
+      "output": "prognosis",
+      "disease": ["AML"],
+      "genes": [],
+      "cytogenetic": true,
+      "claim": "Complex karyotype is ADVERSE risk. Monosomies -5, -7, -17, inv(3)/t(3q26.2) involving MECOM, t(6;9), t(9;22), t(8;16) with KAT6A::CREBBP are also adverse.",
+      "source": "eln22"
+    },
+    {
+      "id": "eln22-favourable-cbf-cebpa",
+      "output": "prognosis",
+      "disease": ["AML"],
+      "genes": ["CEBPA", "RUNX1T1", "CBFB"],
+      "cytogenetic": true,
+      "claim": "FAVOURABLE risk: t(8;21) RUNX1::RUNX1T1; inv(16)/t(16;16) CBFB::MYH11; in-frame CEBPA mutation affecting the basic leucine zipper region (CEBPA-bZIP), monoallelic or biallelic. ELN 2022 replaced 'biallelic CEBPA' with the bZIP criterion.",
+      "source": "eln22"
+    },
+
+    {
+      "id": "who5-npm1-defining",
+      "output": "diagnosis",
+      "disease": ["AML", "MDS"],
+      "genes": ["NPM1"],
+      "claim": "WHO 5th edition: mutated NPM1 is an AML-DEFINING genetic abnormality. The 20% blast requirement is abolished for AML types with defining genetic abnormalities, so a case with mutated NPM1 is AML REGARDLESS OF BLAST PERCENTAGE. (Exceptions retaining a 20% threshold: AML with BCR::ABL1 and AML with CEBPA mutation.)",
+      "implies_disease": ["AML"],
+      "source": "who5"
+    },
+    {
+      "id": "icc22-npm1-10pct",
+      "output": "diagnosis",
+      "disease": ["AML", "MDS"],
+      "genes": ["NPM1"],
+      "claim": "ICC 2022: AML with a recurrent defining genetic abnormality, including mutated NPM1, requires a MINIMUM 10% blasts. A case with mutated NPM1 and 10-19% blasts is classified as 'MDS/AML with mutated NPM1' — a deliberate hybrid category acknowledging the continuum between MDS and AML, and allowing enrolment in both MDS and AML trials. Below 10% blasts it is NPM1-mutated MDS.",
+      "source": "icc22"
+    },
+    {
+      "id": "who5-icc-disagree-npm1",
+      "output": "diagnosis",
+      "disease": ["AML", "MDS"],
+      "genes": ["NPM1"],
+      "claim": "WHO 5th edition and ICC 2022 GENUINELY DISAGREE on NPM1-mutated cases with 10-19% blasts. WHO calls it AML (no blast threshold for a defining lesion). ICC calls it MDS/AML with mutated NPM1. The same marrow gets two different names depending on the system in use.",
+      "note_to_assistant": "When this fires, do not pick a side and do not average them. Show the fork, name both systems, and tell the clinician the choice of system is theirs. The honest answer here is 'these two authorities disagree, and here is exactly how', which is more useful than a false consensus.",
+      "implies_disease": ["AML"],
+      "source": "icc22"
+    },
+    {
+      "id": "icc22-tp53",
+      "output": "diagnosis",
+      "disease": ["AML"],
+      "genes": ["TP53"],
+      "claim": "ICC 2022 creates 'AML with mutated TP53': requires >=20% blasts and any somatic TP53 mutation at a variant allele fraction GREATER THAN 10%. With 10-19% blasts the case is 'MDS/AML with mutated TP53'. WHO 5th edition does NOT create a separate TP53 category.",
+      "source": "icc22"
+    },
+    {
+      "id": "who5-therapy-related",
+      "output": "diagnosis",
+      "disease": ["AML", "MDS"],
+      "genes": [],
+      "clinical_trigger": ["prior chemotherapy", "prior cytotoxic therapy", "prior radiotherapy", "therapy-related"],
+      "claim": "WHO 5th edition classifies neoplasms after cytotoxic therapy as a major category: 'myeloid neoplasm post cytotoxic therapy'. ICC 2022 instead treats prior therapy as a diagnostic QUALIFIER rather than a classifier — a descriptive annotation, not a separate entity.",
+      "source": "who5"
+    },
+
+    {
+      "id": "mrd-recommended-markers",
+      "output": "mrd",
+      "disease": ["AML"],
+      "genes": ["NPM1", "RUNX1T1", "CBFB", "PML", "RARA"],
+      "claim": "ELN MRD consensus: molecular MRD by qPCR/dPCR is recommended for mutated NPM1, CBF AML (RUNX1::RUNX1T1 or CBFB::MYH11), and APL (PML::RARA). These are the established leukaemia-specific molecular MRD markers. KMT2A::MLLT3, DEK::NUP214 and BCR::ABL1 are additional targetable abnormalities; WT1 is usable but less specific.",
+      "source": "eln-mrd-2021"
+    },
+    {
+      "id": "mrd-dta-excluded",
+      "output": "mrd",
+      "disease": ["AML"],
+      "genes": ["DNMT3A", "TET2", "ASXL1"],
+      "claim": "ELN MRD consensus, recommendation B10, verbatim: 'Mutations in DNMT3A, TET2, and ASXL1 (DTA) can be found in age-related clonal hematopoiesis and should be excluded from MRD analysis.' They persist in remission as clonal haematopoiesis rather than residual leukaemia, giving poor negative predictive value.",
+      "note_to_assistant": "Say this whenever a DTA gene is on the panel. The clinician has a mutation in front of them at high VAF and it looks like a perfectly good marker. It is not one, and a second brain that fails to say so has failed at its job.",
+      "source": "eln-mrd-2021"
+    },
+    {
+      "id": "mrd-flt3-itd-poor",
+      "output": "mrd",
+      "disease": ["AML"],
+      "genes": ["FLT3"],
+      "claim": "ELN MRD consensus: FLT3-ITD, when detected, likely represents residual AML, but it is often SUBCLONAL and has low negative predictive value. Recommendation B11: best used in COMBINATION with additional MRD markers, not alone. B12: include in NGS panels when the patient is receiving a FLT3 inhibitor.",
+      "source": "eln-mrd-2021"
+    },
+    {
+      "id": "mrd-tp53-noninformative",
+      "output": "mrd",
+      "disease": ["AML"],
+      "genes": ["TP53"],
+      "claim": "ELN MRD consensus: TP53 appears in the list of mutations to exclude as potentially germline (VAF around 50%), classified as NONINFORMATIVE for MRD. There is no validated TP53 molecular MRD assay.",
+      "note_to_assistant": "In a TP53 case, output 4 should be an explicit 'no reliable molecular MRD marker', with this card. Do not substitute a different gene to fill the slot, and do not offer flow MRD as if it were equivalent unless a card supports it.",
+      "source": "eln-mrd-2021"
+    },
+    {
+      "id": "mrd-response-definition",
+      "output": "mrd",
+      "disease": ["AML"],
+      "genes": [],
+      "claim": "ELN MRD consensus: CR with negative MRD requires complete morphological remission AND MRD negativity by all technologies used — flow cytometry <0.1%, qPCR Ct >=40 with adequate housekeeping gene copies, or NGS <0.1% VAF. Recommended timepoints: after 2 cycles of chemotherapy, at the end of consolidation, and through 24 months of follow-up.",
+      "source": "eln-mrd-2021"
+    },
+
+    {
+      "id": "ipssm-overview",
+      "output": "prognosis",
+      "disease": ["MDS"],
+      "genes": [],
+      "claim": "MDS is risk-stratified by IPSS-M, which combines haematological parameters, cytogenetics and somatic mutations in 31 genes into a per-patient score. TP53-multihit, FLT3 mutations and MLL-PTD are the top adverse genetic predictors; SF3B1 is favourable, modulated by co-mutation pattern.",
+      "note_to_assistant": "IPSS-M needs inputs this tool does not collect (full cytogenetics, blast %, cytopenias, and 31 gene states). Do NOT compute or estimate an IPSS-M score. Say that MDS prognosis runs through IPSS-M, name the genes that would drive it, and hand the calculation back to the clinician.",
+      "source": "ipssm"
+    },
+    {
+      "id": "ipssm-sf3b1-favourable",
+      "output": "prognosis",
+      "disease": ["MDS"],
+      "genes": ["SF3B1"],
+      "claim": "IPSS-M: SF3B1 mutation is associated with FAVOURABLE outcome in MDS, though this is modulated by patterns of co-mutation.",
+      "source": "ipssm"
+    },
+    {
+      "id": "ipssm-tp53-multihit",
+      "output": "prognosis",
+      "disease": ["MDS"],
+      "genes": ["TP53"],
+      "claim": "IPSS-M: TP53-multihit is among the strongest adverse genetic predictors in MDS.",
+      "source": "ipssm"
+    }
+  ]
+}

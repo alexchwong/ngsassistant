@@ -1,0 +1,26 @@
+{
+  "id": "dead-end",
+  "title": "Case 3 — the tool says 'nothing here'",
+  "synthetic": true,
+  "demonstrates": "The case that earns trust. Adverse risk, no targeted therapy, no valid MRD marker. It also exercises both fall-through paths: SETBP1 should miss the corpus and be picked up live by CIViC, and SMC3 should miss both — and must appear under 'Not assessed' rather than quietly vanishing.",
+
+  "age": 67,
+  "sex": "F",
+  "clinical_problem": "Pancytopenia found on routine bloods. Breast cancer six years ago, treated with anthracycline-based chemotherapy and adjuvant radiotherapy; in remission. Three months of increasing lethargy.",
+  "blood_count": {
+    "WCC": "2.2 x10^9/L",
+    "Hb": "79 g/L",
+    "Platelets": "28 x10^9/L",
+    "Neutrophils": "0.6 x10^9/L"
+  },
+  "film": "Pancytopenic. 8% circulating blasts. Marked dysplasia, dimorphic red cells, hypogranular neutrophils.",
+  "marrow_diagnosis": "Acute myeloid leukaemia, therapy-related (prior cytotoxic therapy). Blasts 34%. Karyotype: complex, 5 abnormalities including del(5q), -7, del(17p).",
+  "blast_percentage": 34,
+
+  "ngs": [
+    { "gene": "TP53", "variant": "c.742C>T p.(Arg248Trp)", "vaf": 68, "type": "missense", "note": "VAF 68% with del(17p) — consistent with biallelic loss" },
+    { "gene": "BCOR", "variant": "c.3869delC p.(Ser1290fs)", "vaf": 11, "type": "frameshift" },
+    { "gene": "SETBP1", "variant": "c.2608G>A p.(Asp870Asn)", "vaf": 14, "type": "missense" },
+    { "gene": "SMC3", "variant": "c.1981C>T p.(Arg661Cys)", "vaf": 9, "type": "missense" }
+  ]
+}

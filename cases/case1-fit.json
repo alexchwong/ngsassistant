@@ -1,0 +1,25 @@
+{
+  "id": "fit",
+  "title": "Case 1 — everything fires",
+  "synthetic": true,
+  "demonstrates": "All four outputs land. The NGS supports the diagnosis, sets the risk tier, opens a targeted therapy, and hands over an MRD marker. Two teaching points hide in it: the quoted FLT3-ITD allelic ratio no longer changes the tier under ELN 2022, and DNMT3A at 46% VAF looks like a perfect MRD marker and is not one.",
+
+  "age": 58,
+  "sex": "F",
+  "clinical_problem": "Six weeks of worsening fatigue, bruising on the shins, gums bleeding when brushing. No fever. No prior haematological history, no prior chemotherapy or radiotherapy.",
+  "blood_count": {
+    "WCC": "42.1 x10^9/L",
+    "Hb": "82 g/L",
+    "Platelets": "35 x10^9/L",
+    "Neutrophils": "1.1 x10^9/L"
+  },
+  "film": "Leucoerythroblastic. 45% circulating blasts, medium-sized, high N:C ratio, prominent nucleoli, occasional Auer rods. Cup-shaped nuclei in a subset. Reduced platelets, no schistocytes.",
+  "marrow_diagnosis": "Acute myeloid leukaemia. Hypercellular marrow, 62% myeloblasts. Karyotype: 46,XX [20] — normal.",
+  "blast_percentage": 62,
+
+  "ngs": [
+    { "gene": "NPM1", "variant": "c.860_863dup p.(Trp288fs)", "vaf": 41, "type": "insertion" },
+    { "gene": "FLT3", "variant": "ITD, 42bp, allelic ratio 0.61", "vaf": 33, "type": "ITD" },
+    { "gene": "DNMT3A", "variant": "c.2645G>A p.(Arg882His)", "vaf": 46, "type": "missense" }
+  ]
+}

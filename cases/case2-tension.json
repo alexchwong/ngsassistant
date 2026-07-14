@@ -1,0 +1,26 @@
+{
+  "id": "tension",
+  "title": "Case 2 — the gene list argues with the marrow",
+  "synthetic": true,
+  "demonstrates": "Output 1 doing its real job. The clinician wrote MDS. An NPM1 mutation at 38% VAF says otherwise — and WHO and ICC don't even agree with each other about what to call it. The assistant must show the three-way fork and let the clinician choose, not pick a side.",
+
+  "age": 71,
+  "sex": "M",
+  "clinical_problem": "Eight months of macrocytic anaemia, now transfusion-dependent at roughly 3-weekly intervals. Referred by GP after a failed trial of B12 and folate. No prior cytotoxic therapy.",
+  "blood_count": {
+    "WCC": "3.1 x10^9/L",
+    "Hb": "88 g/L",
+    "Platelets": "95 x10^9/L",
+    "Neutrophils": "0.9 x10^9/L",
+    "MCV": "104 fL"
+  },
+  "film": "Dysplastic neutrophils with hypogranular cytoplasm and pseudo-Pelger-Huet forms. Occasional circulating blast. Macrocytosis, anisopoikilocytosis.",
+  "marrow_diagnosis": "Myelodysplastic syndrome with excess blasts (MDS-EB2). Blasts 12%. Trilineage dysplasia. Karyotype: 46,XY [20] — normal.",
+  "blast_percentage": 12,
+
+  "ngs": [
+    { "gene": "NPM1", "variant": "c.860_863dup p.(Trp288fs)", "vaf": 38, "type": "insertion" },
+    { "gene": "IDH2", "variant": "c.419G>A p.(Arg140Gln)", "vaf": 35, "type": "missense" },
+    { "gene": "SRSF2", "variant": "c.284C>A p.(Pro95His)", "vaf": 44, "type": "missense" }
+  ]
+}
