@@ -1,0 +1,23 @@
+{
+  "id": "mds-sf3b1-dnmt3a",
+  "title": "Case 4 — MDS with low blasts, SF3B1 and DNMT3A",
+  "synthetic": false,
+  "demonstrates": "User-provided scenario to test the NGSAssistant pipeline: MDS with low blasts with SF3B1 and DNMT3A variants.",
+
+  "age": 59,
+  "sex": "F",
+  "clinical_problem": "Cytopenias / macrocytic anaemia.",
+  "blood_count": {
+    "Hb": "95 g/L",
+    "MCV": "110 fL",
+    "WCC": "3.2 x10^9/L",
+    "Platelets": "65 x10^9/L"
+  },
+  "film": "Not provided.",
+  "marrow_diagnosis": "Myelodysplastic syndrome (MDS) with low blasts.",
+
+  "ngs": [
+    { "gene": "SF3B1", "variant": "c.2098A>G", "vaf": 15, "type": "SNV" },
+    { "gene": "DNMT3A", "variant": "c.2645G>A", "vaf": 32, "type": "missense" }
+  ]
+}

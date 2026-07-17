@@ -12,9 +12,8 @@
     "eln22": {
       "citation": "Döhner H, et al. Diagnosis and management of AML in adults: 2022 recommendations from an international expert panel on behalf of the ELN. Blood. 2022;140(12):1345-1377.",
       "url": "https://ashpublications.org/blood/article/140/12/1345/485817",
-      "provenance": "secondary_pending_verification",
-      "encoded_from": "Criteria reproduced in the PETHEMA validation cohort paper, PMC10182047. The Blood original is paywalled (HTTP 403).",
-      "todo": "Replace with the primary PDF. The clinician will have it."
+      "provenance": "primary",
+      "encoded_from": "Original Blood paper verified from clinician-provided local PDF; PDF not committed."
     },
     "who5": {
       "citation": "Khoury JD, et al. The 5th edition of the WHO Classification of Haematolymphoid Tumours: Myeloid and Histiocytic/Dendritic Neoplasms. Leukemia. 2022;36:1703-1719.",
@@ -82,7 +81,6 @@
       "disease": ["AML"],
       "genes": ["ASXL1", "BCOR", "EZH2", "RUNX1", "SF3B1", "SRSF2", "STAG2", "U2AF1", "ZRSR2"],
       "claim": "Mutation in any of ASXL1, BCOR, EZH2, RUNX1, SF3B1, SRSF2, STAG2, U2AF1 or ZRSR2 confers ADVERSE risk, in the absence of favourable-risk markers. These are the myelodysplasia-related mutations newly added to the adverse group in ELN 2022.",
-      "caveat": "The PETHEMA validation cohort observed that patients with a SINGLE MDS-related mutation behaved more like intermediate risk, and suggested this may be refined in future. Worth saying out loud when only one is present.",
       "source": "eln22"
     },
     {
@@ -90,8 +88,7 @@
       "output": "prognosis",
       "disease": ["AML"],
       "genes": ["TP53"],
-      "claim": "TP53 mutation confers ADVERSE risk. TP53 mutation with a complex karyotype is adverse.",
-      "gap": "The VAF threshold used by ELN 2022 did not come through the secondary source cleanly. ICC 2022 uses VAF >10% (see icc22-tp53). A TP53 mutation just under threshold is a real case where the answer flips, so the assistant must NOT assert an ELN VAF cutoff until this card is verified against the primary.",
+      "claim": "TP53 mutation at a variant allele fraction of at least 10%, irrespective of monoallelic or biallelic TP53 status, confers ADVERSE risk. TP53 mutations are significantly associated with AML with complex and monosomal karyotype.",
       "source": "eln22"
     },
     {
@@ -155,6 +152,14 @@
       "genes": [],
       "clinical_trigger": ["prior chemotherapy", "prior cytotoxic therapy", "prior radiotherapy", "therapy-related"],
       "claim": "WHO 5th edition classifies neoplasms after cytotoxic therapy as a major category: 'myeloid neoplasm post cytotoxic therapy'. ICC 2022 instead treats prior therapy as a diagnostic QUALIFIER rather than a classifier — a descriptive annotation, not a separate entity.",
+      "source": "who5"
+    },
+    {
+      "id": "who5-mds-sf3b1",
+      "output": "diagnosis",
+      "disease": ["MDS"],
+      "genes": ["SF3B1"],
+      "claim": "WHO 5th edition (2022) recognises MDS with low blasts and SF3B1 mutation as a genetically defined myelodysplastic neoplasm category. In a case with a clinico-morphological diagnosis of MDS with low blasts and a pathogenic SF3B1 mutation, the NGS findings are consistent with a diagnosis of MDS with SF3B1 mutation.",
       "source": "who5"
     },
 
