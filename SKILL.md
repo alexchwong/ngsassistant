@@ -30,10 +30,23 @@ Run both. Every time. The verifier is not a formality — it is the thing that l
 
 You need: age, sex, clinical problem, blood count, film, marrow diagnosis, and the gene list with variant and VAF. If VAF is missing, ask for it — it separates a dominant clone from CHIP-level noise, and it changes the answer. Write the case to a JSON file (see `cases/cases.json` for the shape).
 
+### Working files and output locations
+
+All per-case working files must be written to a temporary working directory, not the repository root. Use a unique case folder so repeated runs do not overwrite one another:
+
+```text
+/tmp/ngsassistant/<case-id>/case.json
+/tmp/ngsassistant/<case-id>/bundle.json
+/tmp/ngsassistant/<case-id>/draft.md
+/tmp/ngsassistant/<case-id>/final.md
+```
+
+Create the folder before writing any outputs. If `/tmp` is unavailable in the execution environment, use a repo-local ignored temp folder such as `.tmp/ngsassistant/<case-id>/` instead. Do not commit these working files.
+
 **2. Retrieve.**
 
 ```bash
-python scripts/retrieve.py --case path/to/case.json > bundle.json
+python scripts/retrieve.py --case /tmp/ngsassistant/<case-id>/case.json > /tmp/ngsassistant/<case-id>/bundle.json
 ```
 
 Read the bundle. It has four parts: `corpus` (curated cards from named rule sets), `civic` (live somatic evidence, pre-typed), `trials` (recruiting studies), and `unassessed` (genes nothing covered — these matter, see below).
@@ -57,7 +70,7 @@ If no fallback route is available, say **"live CIViC/ClinicalTrials.gov retrieva
 **4. Verify.**
 
 ```bash
-python scripts/verify.py --bundle bundle.json --draft draft.md
+python scripts/verify.py --bundle /tmp/ngsassistant/<case-id>/bundle.json --draft /tmp/ngsassistant/<case-id>/draft.md
 ```
 
 If it isn't clean, fix the draft — don't re-tag the claim with a different ID to make the checker happy. A failing check means you said something you couldn't support, and the honest fix is to stop saying it.
