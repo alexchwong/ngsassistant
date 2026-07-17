@@ -1,7 +1,0 @@
-The NGS findings do not provide a retrieved mutation-driven argument against the submitted diagnosis of MDS with low blasts [1]. In MDS, prognosis should be assigned through IPSS-M, which integrates blood counts, blasts, cytogenetics and somatic mutations; an IPSS-M score should not be estimated here because full required inputs were not collected [1]. SF3B1 is a favourable IPSS-M molecular feature, although its effect is modified by co-mutation pattern [1]. The retrieved DNMT3A prognostic evidence was AML-focused, so it was not used for MDS risk assignment [2]. No curated retrieved source established SF3B1 or DNMT3A as a targeted therapy in this MDS case [1,2]. CIViC returned only level D preclinical/leukaemia-model evidence for SF3B1 K700E sensitivity to DNA-damaging agents/PARP inhibition [3]. Recruiting MDS/SF3B1 studies were identified [4,5]. No retrieved source validated SF3B1 or DNMT3A as an MRD marker here [1,2].
-
-1. Bernard E, Tuechler H, Greenberg PL, et al. Molecular International Prognostic Scoring System for Myelodysplastic Syndromes. NEJM Evidence. 2022;1(7).
-2. Ley TJ, Ding L, Walter MJ, et al. DNMT3A mutations in acute myeloid leukemia. N Engl J Med. 2010;363(25):2424-2433.
-3. Madubata CJ, et al. Cancer-associated SF3B1 mutations confer a BRCA-like cellular phenotype and synthetic lethality to PARP inhibitors. PubMed PMID:35027467.
-4. ClinicalTrials.gov. Luspatercept + Darbepoetin in MDS. NCT07096297.
-5. ClinicalTrials.gov. Ferroptosis Study in SF3B1-mutant Myelodysplastic Syndromes (FerMDS). NCT05924074.
