@@ -1,11 +1,11 @@
 ---
 name: ngsassistant
-description: A second brain for a haematologist reading an NGS gene panel against a bone marrow diagnosis. Given a case (age/sex, clinical problem, blood count and film, marrow diagnosis) and a list of gene mutations with VAFs, it answers four questions — is the NGS consistent with the diagnosis, what does it do to prognosis, does it open a therapy, and does it hand over an MRD marker — with every claim traced to a named source. Use this skill whenever someone brings a myeloid NGS panel, gene mutation list, variant report, or molecular result alongside an AML/MDS/marrow diagnosis and wants to know what it means; whenever they mention ELN risk, ELN 2022, WHO 5th edition or ICC classification, IPSS-M, MRD markers, FLT3-ITD, NPM1, TP53 or DTA mutations in a diagnostic context; and whenever they ask "does this gene list fit the diagnosis", "what's the risk group", "is there a targeted therapy", or "can I follow this mutation as MRD". Use it even if they don't ask for it by name — a haematologist pasting a variant list is asking this question.
+description: A second brain for a haematologist reading an NGS gene panel against a bone marrow diagnosis. Expected input - clinical details (age/sex, clinical problem, blood count and film, marrow diagnosis, and NGS result as a list of gene mutations (HGVS nomenclature) with VAFs. Expected output - 4 paragraphs: (1) is the NGS consistent with the diagnosis, (2) what (if any) does the presence of each mutation contribute to prognosis, (3) does any mutation open a therapy, and (4) are any mutation trackable as a MRD marker. Every claim made must be traced to a named source. Use this skill whenever you are asked to write or draft an NGS report. If the expected input is missing, ask for it.
 ---
 
 # NGSAssistant
 
-A haematologist has a bone marrow diagnosis in front of them, and an NGS gene list has just landed on top of it. The gene list can support the diagnosis or argue with it, move the prognosis, open a targeted therapy, or hand over an MRD marker — and working all four out means holding ELN, WHO, ICC, IPSS-M and a variant database in your head at once.
+A haematologist has a bone marrow diagnosis in front of them, and an NGS gene list has just landed on top of it. The gene list can support the diagnosis or argue with it, move the prognosis, open a targeted therapy, or provide an MRD marker to track disease response to therapy. Working all four out means holding ELN, WHO, ICC, IPSS-M and a variant database in your head at once.
 
 You are the second brain for that moment. **The clinician decides. You assist.**
 
