@@ -123,7 +123,7 @@ Be aware of these before you lean on it.
 
 | | |
 |---|---|
-| **ELN 2022** — AML risk | ⚠️ **Second-hand.** The original paper is paywalled, so the criteria were taken from a validation study that reproduces them. Every claim built on it is **stamped as provisional in the answer**. Fixing this is job #1. |
+| **ELN 2022** — AML risk | ✅ From the original Blood paper. Includes the 2022 AML genetic risk table and the TP53 VAF threshold. |
 | **WHO 5th edition (2022)** | ✅ From the original |
 | **ICC 2022** | ✅ From the original. Included *because* it disagrees with WHO — that disagreement is clinically real and you should see it |
 | **ELN MRD consensus** | ✅ From the original — but the **2021** version. The 2025 update is paywalled and isn't in yet |
@@ -133,7 +133,7 @@ Be aware of these before you lean on it.
 
 **Not in there at all:** ELN 2024 (risk for patients on *less-intensive* therapy — directly relevant to your older and unfit patients), MPN, anything lymphoid. Scope is AML and MDS.
 
-**Unresolved:** the exact TP53 VAF threshold for ELN. ICC uses >10%. A TP53 mutation sitting just under the line is a real case where the answer flips, so the tool **refuses to state a cutoff** until someone gives it a sourced one.
+**Still to add:** ELN 2024 for patients receiving less-intensive therapy, the 2025 ELN-DAVID MRD update, MPN, and anything lymphoid.
 
 ---
 
@@ -151,12 +151,11 @@ Claude will write the new cards into `corpus/cards.json` for you and hand the fi
 
 **Good first jobs, in order:**
 
-1. **Give it the real ELN 2022 paper.** You almost certainly have the PDF. It removes every "provisional" stamp in the tool and settles the TP53 VAF threshold.
-2. **Give it the 2025 ELN MRD update.** The MRD answers are currently one guideline generation behind.
-3. **Add ELN 2024** (less-intensive therapy).
-4. **Work the "Not assessed" lists.** Every gene that shows up there is a gap someone has now noticed. That's the flywheel.
+1. **Give it the 2025 ELN MRD update.** The MRD answers are currently one guideline generation behind.
+2. **Add ELN 2024** (less-intensive therapy).
+3. **Work the "Not assessed" lists.** Every gene that shows up there is a gap someone has now noticed. That's the flywheel.
 
-If you'd rather edit the file directly, [`corpus/HOW_TO_ADD_A_CARD.md`](corpus/HOW_TO_ADD_A_CARD.md) explains the format. It's plain JSON — a citation, and a sentence saying what the source says.
+If you'd rather edit the file directly, [`corpus/HOW_TO_ADD_A_CARD.md`](corpus/HOW_TO_ADD_A_CARD.md) explains the format. If you're dropping PDFs into the repository and asking a coding LLM to process them, use [`corpus/CORPUS.md`](corpus/CORPUS.md) as the workflow checklist. It's plain JSON — a citation, and a sentence saying what the source says.
 
 **The one rule when adding anything:** don't write a claim the source doesn't actually make. The whole value of this tool is that you can point at any line and be shown where it came from. One card containing a plausible-sounding fact that no paper says, and that guarantee is gone — and nobody will be able to tell which line it was.
 

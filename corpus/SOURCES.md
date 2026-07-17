@@ -10,7 +10,7 @@ Status legend: **PRIMARY** = the authority we encode from · **SECONDARY** = sum
 
 | Source | Covers | Status | Route |
 |---|---|---|---|
-| Döhner et al. **ELN 2022**, *Blood* 140(12):1345 — Diagnosis and management of AML in adults | Output ② prognosis for AML. The risk table. | **BLOCKED** (ashpublications 403) | Criteria recovered via PETHEMA validation paper (PMC10182047). Need clean primary — try ScienceDirect mirror / institutional PDF. |
+| Döhner et al. **ELN 2022**, *Blood* 140(12):1345 — Diagnosis and management of AML in adults | Output ② prognosis for AML. The risk table. | **PRIMARY** | Verified against clinician-provided local original PDF; PDF not committed. |
 | Döhner et al. **ELN 2024**, *Blood* 144(21):2169 — Genetic risk classification for adults receiving **less-intensive** therapies | Output ② for patients not fit for intensive chemo. **Not on the whiteboard. Directly relevant to Case 3 (67F, t-AML).** | To fetch | ashpublications — expect 403, find PMC |
 | Khoury et al. **WHO 5th ed 2022**, *Leukemia* 36:1703 | Output ① — AML-defining genetic abnormalities, blast thresholds | Open access ✅ | nature.com/articles/s41375-022-01613-1 · PMC9252913 |
 | Arber et al. **ICC 2022**, *Blood* 140(11):1200 | Output ① — the competing classification. Needed because it *disagrees* with WHO. | Open access ✅ | PMC9479031 |
@@ -46,11 +46,11 @@ Three systems, three names, one marrow. And the secondary summaries I read **con
 **3. Case 3's "no assessment" distractor is broken — BCOR is a corpus hit.**
 ELN 2022's adverse MDS-related gene list is: **ASXL1, BCOR, EZH2, RUNX1, SF3B1, SRSF2, STAG2, U2AF1, ZRSR2**. I picked BCOR as the gene that would miss *both* corpus and CIViC. It's on the list. Need a different gene to demonstrate the honest dead-end. (Also note **SRSF2** in Case 2 is on this list too — it isn't inert background, it's an adverse-risk gene, and the tool must say so.)
 
-**4. The MRD source on the board is out of date.** The 2021 ELN MRD consensus has been superseded by the **2025 ELN-DAVID update**. Corpus uses 2025.
+**4. The MRD source on the board is out of date.** The 2021 ELN MRD consensus has been superseded by the **2025 ELN-DAVID update**. Corpus still uses 2021 until the 2025 primary is added.
 
-**5. TP53 VAF threshold is unresolved.** ICC 2022 requires "any somatic TP53 mutation at VAF >10%". The ELN 2022 threshold did not come through cleanly in the secondary source. Case 3 sits at VAF 68% so it doesn't bite here — but the corpus card must carry the exact threshold, from the primary, because a 9%-VAF TP53 is a real case and the answer flips.
+**5. TP53 VAF threshold is now resolved from the ELN 2022 primary.** ELN 2022 uses TP53 mutation at a variant allele fraction of at least 10%, irrespective of monoallelic or biallelic TP53 status. This was verified from the clinician-provided local original PDF; the PDF is not committed.
 
 ---
 
 ## Open, needs a decision
-- Three sources are 403 behind ASH. Options: PMC versions, institutional access, or the clinician's own PDF library. **Flagged for the clinician — they will have these papers.**
+- Remaining ASH-hosted sources may still require PMC versions, institutional access, or the clinician's own PDF library. **Flagged for the clinician — they will have these papers.**
