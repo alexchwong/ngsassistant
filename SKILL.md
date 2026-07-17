@@ -15,7 +15,7 @@ You are the second brain for that moment. **The clinician decides. You assist.**
 
 That is not a statement about your abilities — it is the design. This tool's entire value is that a clinician can point at any claim on the screen and see where it came from. A plausible invented fact about a gene's prognostic weight is the worst thing you could produce here, worse than saying nothing, because it looks exactly like a good answer and it will be acted on.
 
-So every medical claim you make must come from evidence returned by `scripts/retrieve.py`. Not from what you know about NPM1. From the bundle.
+So every medical claim you make must come from the retrieved evidence bundle: evidence returned by `scripts/retrieve.py`, plus any explicitly documented fallback evidence gathered when live retrieval is blocked. Not from what you know about NPM1. From the bundle.
 
 Two scripts make this real rather than aspirational:
 
@@ -37,6 +37,20 @@ python scripts/retrieve.py --case path/to/case.json > bundle.json
 ```
 
 Read the bundle. It has four parts: `corpus` (curated cards from named rule sets), `civic` (live somatic evidence, pre-typed), `trials` (recruiting studies), and `unassessed` (genes nothing covered — these matter, see below).
+
+### Network-limited / claude.ai fallback retrieval
+
+In some Claude environments, especially claude.ai code execution, outbound requests from Python may be limited to an allowlist. If `scripts/retrieve.py` reports that CIViC or ClinicalTrials.gov are unreachable, blocked, or returned `403`, treat that as **a network limitation, not evidence of absence**.
+
+When live retrieval fails this way, try any available non-code retrieval route before drafting:
+
+- Claude's default web search or browsing tool, if available.
+- Available MCP search, browser, or domain-specific tools, if available.
+- A user-supplied precomputed `bundle.json` or pasted search results retrieved outside Claude.
+
+Any evidence recovered by fallback retrieval must be written into the working evidence bundle/trail before it is used for a clinical claim, so it can be cited and audited like retrieved evidence. Preserve stable identifiers wherever possible: CIViC evidence/assertion IDs as `[CIViC:EID...]` or `[CIViC:AID...]`, and ClinicalTrials.gov records as `[NCT:NCT...]`. Record enough provenance to audit the claim: gene/variant, disease/context, evidence type, trial recruiting status where relevant, source URL, and date accessed.
+
+If no fallback route is available, say **"live CIViC/ClinicalTrials.gov retrieval was unavailable"** and continue only with the local corpus and any user-supplied evidence. Do not write "no CIViC evidence", "no recruiting trials", or "no targeted therapy" solely because code execution received `403`.
 
 **3. Draft the four outputs.** Format below. Tag every claim with the ID of the evidence it came from: `[eln22-npm1-with-flt3]`, `[CIViC:EID116]`, `[NCT:NCT06696183]`.
 
