@@ -118,6 +118,16 @@ Do not write long explanatory paragraphs when a shorter gene-level statement wil
 
 If the submitted variants do not contradict the clinico-morphological diagnosis, state that the NGS findings are **"consistent with"** the diagnosis.
 
+When using formal diagnostic terminology from **WHO 5th edition (2022)** or **ICC 2022**, cite the retrieved WHO/ICC evidence in the same sentence. Do not write a WHO or ICC entity name without a citation. This includes phrases such as "AML with mutated NPM1", "MDS/AML with mutated NPM1", "AML with mutated TP53", "myeloid neoplasm post cytotoxic therapy", and "MDS with SF3B1 mutation".
+
+If a submitted variant supports a named WHO/ICC diagnostic entity and the relevant WHO/ICC card was retrieved, use this pattern in the final Diagnosis paragraph:
+
+```text
+Pathogenic variants in [GENE1] and [GENE2] were detected. These results are consistent with a diagnosis of [WHO/ICC entity] as per [WHO 5th edition (2022) / ICC 2022] [n].
+```
+
+If no WHO/ICC diagnostic card was retrieved for the named entity, do not use the formal WHO/ICC entity name. Instead state only that the findings are consistent with the clinico-morphological diagnosis or with a clonal myeloid process, using the retrieved evidence available.
+
 Do not overstate diagnostic specificity. If a variant supports clonality but does not define the disease, say that it is consistent with a clonal myeloid process rather than diagnostic of a specific entity.
 
 ### Negative statements
@@ -164,6 +174,8 @@ The working draft may use internal evidence IDs such as `[ipssm-overview]`, `[CI
 The final report should convert verified evidence IDs into numbered citations in square brackets, e.g. `[1]`, with a numbered Vancouver-style reference list appended.
 
 Every sentence that makes a clinical claim must include a citation.
+
+Diagnostic classification terms are clinical claims. Any sentence that uses WHO 5th edition (2022) or ICC 2022 terminology must include a citation to the retrieved WHO/ICC card in that sentence.
 
 ### ① Consistent with the diagnosis?
 

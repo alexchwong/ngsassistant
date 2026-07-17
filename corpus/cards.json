@@ -154,6 +154,14 @@
       "claim": "WHO 5th edition classifies neoplasms after cytotoxic therapy as a major category: 'myeloid neoplasm post cytotoxic therapy'. ICC 2022 instead treats prior therapy as a diagnostic QUALIFIER rather than a classifier — a descriptive annotation, not a separate entity.",
       "source": "who5"
     },
+    {
+      "id": "who5-mds-sf3b1",
+      "output": "diagnosis",
+      "disease": ["MDS"],
+      "genes": ["SF3B1"],
+      "claim": "WHO 5th edition (2022) recognises MDS with low blasts and SF3B1 mutation as a genetically defined myelodysplastic neoplasm category. In a case with a clinico-morphological diagnosis of MDS with low blasts and a pathogenic SF3B1 mutation, the NGS findings are consistent with a diagnosis of MDS with SF3B1 mutation.",
+      "source": "who5"
+    },
 
     {
       "id": "mrd-recommended-markers",
