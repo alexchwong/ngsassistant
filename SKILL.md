@@ -52,7 +52,7 @@ If it isn't clean, fix the draft — don't re-tag the claim with a different ID 
 
 ## The four outputs
 
-Use this structure. It's the clinician's own whiteboard, and it's what they'll be scanning for.
+Use this structure for the **working draft** that is checked by `scripts/verify.py`. It's the clinician's own whiteboard, and it's what they'll be scanning for while you are building the answer.
 
 ```
 ## 1. Is the NGS consistent with the diagnosis?
@@ -61,6 +61,82 @@ Use this structure. It's the clinician's own whiteboard, and it's what they'll b
 ## 4. MRD biomarker
 ## Not assessed
 ```
+
+After verification, convert the working draft into the **final clinical report** format below.
+
+## Final clinical report format
+
+The final user-facing report should be concise and clinically shaped. Write **one paragraph each** for:
+
+1. **Diagnosis** — whether the variants are consistent with, define, support, or contradict the clinico-morphological diagnosis.
+2. **Prognosis** — favourable, adverse, neutral/no retrieved prognostic value, or context-dependent effect.
+3. **Targeted therapy options** — only therapies or trials supported by retrieved evidence.
+4. **MRD options** — only validated, unsuitable, or otherwise evidence-supported MRD interpretations.
+
+Add a 5th paragraph, **Clonal markers**, only when one or more submitted variants are assessed but do not define or contradict the diagnosis, do not convey prognostic value, do not open targeted therapy, and are not usable MRD markers.
+
+### Sentence-level rule
+
+Within each paragraph, write **one sentence for each gene**. If variants in multiple genes serve the same purpose, group them in the same sentence.
+
+Example:
+
+```text
+ASXL1 and SRSF2 convey adverse prognosis as per IPSS-M [1].
+```
+
+Do not write long explanatory paragraphs when a shorter gene-level statement will do.
+
+### Diagnosis wording
+
+If the submitted variants do not contradict the clinico-morphological diagnosis, state that the NGS findings are **"consistent with"** the diagnosis.
+
+Do not overstate diagnostic specificity. If a variant supports clonality but does not define the disease, say that it is consistent with a clonal myeloid process rather than diagnostic of a specific entity.
+
+### Negative statements
+
+For the final clinical report, omit negative statements unless they are clinically important.
+
+Do not write sentences such as "no targeted therapy was identified" or "no MRD marker was identified" unless the user specifically asks for a full audit trail.
+
+Exception: in the **prognosis** paragraph, explicitly state which submitted variants do **not** convey prognostic value in the retrieved evidence, because that is clinically useful interpretation.
+
+### Clonal markers paragraph
+
+If a submitted variant is assessed but does not:
+
+- define or contradict the diagnosis,
+- convey prognostic value,
+- open a targeted therapy option, or
+- serve as a validated MRD marker,
+
+then mention it in a final 5th paragraph titled **Clonal markers**.
+
+Use this wording pattern:
+
+```text
+[GENE] is best regarded as a clonal marker in this context, with no retrieved evidence that it defines the diagnosis, changes prognosis, opens targeted therapy, or provides a validated MRD marker [1].
+```
+
+### Gene-level reporting algorithm
+
+For each submitted gene variant, decide which of the following buckets it belongs to using only retrieved evidence:
+
+1. **Diagnosis**: supports, defines, contradicts, or is consistent with the clinico-morphological diagnosis.
+2. **Prognosis**: favourable, adverse, neutral/no retrieved prognostic value, or context-dependent.
+3. **Therapy**: opens a targeted/licensed therapy, a trial option, or only preclinical/low-level evidence.
+4. **MRD**: validated marker, unsuitable marker, or no retrieved MRD role.
+5. **Clonal marker**: assessed but does not fit any of the above clinically actionable categories.
+
+Write one sentence per gene per relevant paragraph. If two or more genes have the same interpretation, group them into one sentence.
+
+### Citation style for the final report
+
+The working draft may use internal evidence IDs such as `[ipssm-overview]`, `[CIViC:EID116]`, or `[NCT:NCT06696183]` so that `scripts/verify.py` can check the answer.
+
+The final report should convert verified evidence IDs into numbered citations in square brackets, e.g. `[1]`, with a numbered Vancouver-style reference list appended.
+
+Every sentence that makes a clinical claim must include a citation.
 
 ### ① Consistent with the diagnosis?
 
@@ -79,7 +155,7 @@ Give the risk tier and the criterion that produced it. Two things worth watching
 
 ### ③ Therapy
 
-Licensed/targeted therapy from the corpus and from CIViC `PREDICTIVE` evidence. When there is **no** targeted therapy, say so plainly and don't reach for something adjacent to fill the slot — that's where the trial search earns its place. "There is no targeted therapy for this; here are three recruiting trials" is a real answer.
+Licensed/targeted therapy from the corpus and from CIViC `PREDICTIVE` evidence. In the **working draft**, when there is **no** targeted therapy, say so plainly and don't reach for something adjacent to fill the slot — that's where the trial search earns its place. "There is no targeted therapy for this; here are three recruiting trials" is a real answer. In the **final clinical report**, omit negative therapy statements unless the user has asked for a full audit trail or the absence of a therapy is itself the key clinical message.
 
 You are not prescribing. You are showing what the evidence says exists.
 
@@ -88,7 +164,7 @@ You are not prescribing. You are showing what the evidence says exists.
 The trap here is that any mutation at a healthy VAF *looks* like a usable marker, and most aren't. The corpus knows which ones are validated. Two failures to avoid:
 
 - **DTA mutations (DNMT3A, TET2, ASXL1) are not MRD markers** — they persist in remission as clonal haematopoiesis. A clinician looking at DNMT3A at 46% VAF is looking at a beautiful-seeming marker that will mislead them. Say so.
-- **When there is no valid marker, output ④ is empty, and you say why.** Do not substitute a different gene to fill the slot. A tool that always finds an MRD marker is a tool that's making them up.
+- **When there is no valid marker, output ④ is empty in the working draft, and you say why.** Do not substitute a different gene to fill the slot. A tool that always finds an MRD marker is a tool that's making them up. In the **final clinical report**, omit negative MRD statements unless the user has asked for a full audit trail or the absence of an MRD marker is itself the key clinical message.
 
 ### ⑤ Not assessed
 
@@ -104,7 +180,7 @@ Some corpus cards are stamped `secondary_pending_verification`. That means the c
 
 ## What good looks like
 
-The tool has succeeded when the clinician can point at any line and you can say where it came from — and when, on the case where there's nothing to offer, you said "nothing here" instead of manufacturing an answer. A second brain that always has good news is not a second brain. It's a liability that agrees with you.
+The tool has succeeded when the clinician can point at any line and you can say where it came from — and when, on the case where there's nothing to offer, the working draft said "nothing here" instead of manufacturing an answer. The final clinical report may omit negative statements according to the rules above, but the evidence trail must still show that nothing was invented. A second brain that always has good news is not a second brain. It's a liability that agrees with you.
 
 ## Growing the corpus
 

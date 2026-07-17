@@ -1,0 +1,704 @@
+{
+  "case_id": "mds-sf3b1-dnmt3a",
+  "disease_assumed": "MDS",
+  "disease_fork": [],
+  "fork_note": null,
+  "genes_submitted": [
+    "SF3B1",
+    "DNMT3A"
+  ],
+  "corpus_version": "0.1.0",
+  "network": true,
+  "corpus": [
+    {
+      "id": "ipssm-overview",
+      "output": "prognosis",
+      "claim": "MDS is risk-stratified by IPSS-M, which combines haematological parameters, cytogenetics and somatic mutations in 31 genes into a per-patient score. TP53-multihit, FLT3 mutations and MLL-PTD are the top adverse genetic predictors; SF3B1 is favourable, modulated by co-mutation pattern.",
+      "matched_on": "disease-level rule",
+      "caveat": null,
+      "gap": null,
+      "note_to_assistant": "IPSS-M needs inputs this tool does not collect (full cytogenetics, blast %, cytopenias, and 31 gene states). Do NOT compute or estimate an IPSS-M score. Say that MDS prognosis runs through IPSS-M, name the genes that would drive it, and hand the calculation back to the clinician.",
+      "source": {
+        "id": "ipssm",
+        "citation": "Bernard E, et al. Molecular International Prognostic Scoring System for Myelodysplastic Syndromes (IPSS-M). NEJM Evidence. 2022;1(7).",
+        "url": "https://evidence.nejm.org/doi/full/10.1056/EVIDoa2200008",
+        "provenance": "primary",
+        "todo": null
+      },
+      "for_disease": "MDS"
+    },
+    {
+      "id": "ipssm-sf3b1-favourable",
+      "output": "prognosis",
+      "claim": "IPSS-M: SF3B1 mutation is associated with FAVOURABLE outcome in MDS, though this is modulated by patterns of co-mutation.",
+      "matched_on": [
+        "SF3B1"
+      ],
+      "caveat": null,
+      "gap": null,
+      "note_to_assistant": null,
+      "source": {
+        "id": "ipssm",
+        "citation": "Bernard E, et al. Molecular International Prognostic Scoring System for Myelodysplastic Syndromes (IPSS-M). NEJM Evidence. 2022;1(7).",
+        "url": "https://evidence.nejm.org/doi/full/10.1056/EVIDoa2200008",
+        "provenance": "primary",
+        "todo": null
+      },
+      "for_disease": "MDS"
+    }
+  ],
+  "civic": {
+    "SF3B1": [
+      {
+        "id": "CIViC:EID10139",
+        "output": "therapy",
+        "evidence_type": "PREDICTIVE",
+        "evidence_level": "D",
+        "direction": "SUPPORTS",
+        "significance": "SENSITIVITYRESPONSE",
+        "claim": "The cancer-associated SF3B1-K700E mutation compromises homologous recombination repair and increases the sensitivity to ionising radiation and DNA damaging agents, such as etoposide or small molecule inhibitors including olaparib in isogenic K562 cell line. The SF3B1-WT and SF3B1-K700E cell lines were also engrafted subcutaneously into immunocompromised mice, and the mice were treated with etoposide, olaparib or a vehicle control and monitored tumour growth for 28 days. Treatment with either etoposide or olaparib significantly reduced the volume of the SF3B1-K700E mutant tumours, but had little effect on the volume of SF3B1-WT tumours.",
+        "molecular_profile": "SF3B1 K700E",
+        "disease": "Leukemia",
+        "therapies": [
+          "Olaparib",
+          "Etoposide"
+        ],
+        "source": {
+          "id": "PMID:35027467",
+          "citation": "Cancer-Associated SF3B1 Mutations Confer a BRCA-Like Cellular Phenotype and Synthetic Lethality to PARP Inhibitors.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35027467/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID1417",
+        "output": "therapy",
+        "evidence_type": "PREDICTIVE",
+        "evidence_level": "D",
+        "direction": "SUPPORTS",
+        "significance": "SENSITIVITYRESPONSE",
+        "claim": "Mutations in SF3B1 were identified in 21/936 ER positive vs. 1/289 ER negative breast cancers. Mutation was recurrent (K700E in 74% or K666Q or K666E in another 9% of tumors). Treatment of two SF3B1 mutant cell lines (pancreatic and endometrial with K700 and K666 mutation, respectively) and six wild-type controls showed that mutant cell lines were significantly more sensitive to spliceostatin A (SF3b complex inhibitor).",
+        "molecular_profile": "SF3B1 K700E",
+        "disease": "Breast Cancer",
+        "therapies": [
+          "Spliceostatin A"
+        ],
+        "source": {
+          "id": "PMID:25424858",
+          "citation": "SF3B1 mutations constitute a novel therapeutic target in breast cancer.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25424858/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID1418",
+        "output": "therapy",
+        "evidence_type": "PREDICTIVE",
+        "evidence_level": "D",
+        "direction": "SUPPORTS",
+        "significance": "SENSITIVITYRESPONSE",
+        "claim": "Mutations in SF3B1 were identified in 21/936 ER positive vs. 1/289 ER negative breast cancers. Mutation was recurrent (K700E in 74% or K666Q or K666E in another 9% of tumors). Treatment of two SF3B1 mutant cell lines (pancreatic and endometrial with K700 and K666 mutation, respectively) and six wild-type controls showed that mutant cell lines were significantly more sensitive to spliceostatin A (SF3b complex inhibitor).",
+        "molecular_profile": "SF3B1 K666N",
+        "disease": "Breast Cancer",
+        "therapies": [
+          "Spliceostatin A"
+        ],
+        "source": {
+          "id": "PMID:25424858",
+          "citation": "SF3B1 mutations constitute a novel therapeutic target in breast cancer.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/25424858/",
+          "provenance": "live_civic"
+        }
+      }
+    ],
+    "DNMT3A": [
+      {
+        "id": "CIViC:EID62",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "AML patients with DNMT3A mutations (59% of which were R882) showed worse survival (event-free and overall) outcome than those without DNMT3A mutation.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:21067377",
+          "citation": "DNMT3A mutations in acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21067377/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID64",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "In AML patients with FLT3-ITD mutations, concurrent DNMT3A mutations (including R882) were associated with worse overall survival compared to those without DNMT3A mutation.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:21067377",
+          "citation": "DNMT3A mutations in acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21067377/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID65",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "In cytogenetically normal AML patients, DNMT3A R882 mutations are associated with lower overall and disease free survival as compared to patients with wild type DNMT3A.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:24512939",
+          "citation": "DNMT3A R882 mutations in patients with cytogenetically normal acute myeloid leukemia and myelodysplastic syndrome.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24512939/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID112",
+        "output": "diagnosis",
+        "evidence_type": "DIAGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POSITIVE",
+        "claim": "DNMT3A mutations (59% of which were R882) were associated with an intermediate risk cytogenetic profile, normal cytogenetic profile, and M4 and M5 FAB subtypes.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:21067377",
+          "citation": "DNMT3A mutations in acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21067377/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID7228",
+        "output": "diagnosis",
+        "evidence_type": "DIAGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POSITIVE",
+        "claim": "DNMT3A R882P somatic mutation, together with R882H, R882C and R882S were identified from Acute Myeloid Leukemia (AML) patients. And R882P, R882H and R882C were revealed as significant hotspot mutations in AML",
+        "molecular_profile": "DNMT3A R882P",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:21067377",
+          "citation": "DNMT3A mutations in acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21067377/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID11",
+        "output": "therapy",
+        "evidence_type": "PREDICTIVE",
+        "evidence_level": "B",
+        "direction": "DOES_NOT_SUPPORT",
+        "significance": "RESISTANCE",
+        "claim": "Daunorubicin treatment resulted in similar overall survival and disease free survival in de novo AML patients with DNMT3A R882 mutation compared to those who do not harbor this mutation.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [
+          "Daunorubicin"
+        ],
+        "source": {
+          "id": "PMID:22081665",
+          "citation": "Do AML patients with DNMT3A exon 23 mutations benefit from idarubicin as compared to daunorubicin? A single center experience.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22081665/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID18",
+        "output": "therapy",
+        "evidence_type": "PREDICTIVE",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "SENSITIVITYRESPONSE",
+        "claim": "Idarubicin increases the overall survival and disease free survival in de novo AML patients with DNMT3A R882 mutation compared to those who do not harbor this mutation.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [
+          "Idarubicin"
+        ],
+        "source": {
+          "id": "PMID:22081665",
+          "citation": "Do AML patients with DNMT3A exon 23 mutations benefit from idarubicin as compared to daunorubicin? A single center experience.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22081665/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID24",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "DOES_NOT_SUPPORT",
+        "significance": "POOR_OUTCOME",
+        "claim": "There is no difference in the complete remission rate of de novo AML patients with DNMT3A mutation compared to those who are wild type for DNMT3A.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:22081665",
+          "citation": "Do AML patients with DNMT3A exon 23 mutations benefit from idarubicin as compared to daunorubicin? A single center experience.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22081665/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID25",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "De novo AML patients with DNMT3A D882 mutation showed worse survival (event-free and overall) outcome than those without DNMT3A mutation.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:21067377",
+          "citation": "DNMT3A mutations in acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/21067377/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID51",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "DOES_NOT_SUPPORT",
+        "significance": "NA",
+        "claim": "In young AML patients (<60 years old), DNMT3A mutation status (60% of which were R882) was not predictive of overall and relapse free survival in patients with NPM1 mutations and wildtype FLT3 or wildtype NPM1 and FLT3-ITD.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:22490330",
+          "citation": "Mutant DNMT3A: a marker of poor prognosis in acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22490330/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID66",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "In older cytogenetically normal AML patients (>59 years), DNMT3A R882 mutation is prognostic for shorter disease free survival and overall survival compared to patients without the mutation.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:22291079",
+          "citation": "Age-related prognostic impact of different types of DNMT3A mutations in adults with primary cytogenetically normal acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22291079/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID67",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "In young AML patients (<60 years old), DNMT3A mutations were associated with significantly reduced overall survival and relapse free survival in patients wildtype for NPM1 and FLT3.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:22490330",
+          "citation": "Mutant DNMT3A: a marker of poor prognosis in acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22490330/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID68",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "In younger cytogenetically normal AML patients (<60 years), DNMT3A mutations other than R882 are prognostic for shorter disease free survival and overall survival compared to patients without the mutation.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:22291079",
+          "citation": "Age-related prognostic impact of different types of DNMT3A mutations in adults with primary cytogenetically normal acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22291079/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID157",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "DOES_NOT_SUPPORT",
+        "significance": "NA",
+        "claim": "Complete remission rates did not differ between patients with wildtype or mutant DNMT3A (62% of which affected R882) and cytogenetically normal AML.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:22291079",
+          "citation": "Age-related prognostic impact of different types of DNMT3A mutations in adults with primary cytogenetically normal acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22291079/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID187",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "DNMT3A mutations (62% of which were R882) were associated with reduced disease-free survival in patients with cytogenetically normal AML.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:22291079",
+          "citation": "Age-related prognostic impact of different types of DNMT3A mutations in adults with primary cytogenetically normal acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22291079/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID469",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "In adult patients with early (n = 30), cortical (n = 30), mature (n = 3) or unknown (n = 8) T-cell acute lymphoblastic leukemia, those with mutations in DNMT3A (n=12) had shorter overall survival than wild-type patients (n=59; p=0.011). This was also true for the subset of patients with early T-ALL DNMT3A-mutated (n = 8) compared to wild-type patients (n = 22; p=0.005).",
+        "molecular_profile": "DNMT3A Mutation",
+        "disease": "T-cell Acute Lymphoblastic Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:23341344",
+          "citation": "The molecular profile of adult T-cell acute lymphoblastic leukemia: mutations in RUNX1 and DNMT3A are associated with poor prognosis in T-ALL.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23341344/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID1585",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "In AML patients aged <60years, presence of a DNMT3A mutation associated with inferior CR rate (HR, 0.54; P=.05) and shorter OS (HR, 1.84; P<.001) in multivariate analyses. Mutated DNMT3A associated with shorter RFS (HR 1.38; P=.034) irrespective of patient age.",
+        "molecular_profile": "DNMT3A Mutation",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:27288520",
+          "citation": "Spectrum and prognostic relevance of driver gene mutations in acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27288520/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID1586",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "DNMT3A mutations associate with adverse overall survival in acute myeloid leukemia patients if they occur in the context of mutated NPM1 and  FLT3-ITD (NPM1-FLT3ITD-DNMT3A phenotype), and in the context of IDH2 codon R140 mutations.",
+        "molecular_profile": "DNMT3A Mutation",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:27276561",
+          "citation": "Genomic Classification and Prognosis in Acute Myeloid Leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27276561/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID4",
+        "output": "diagnosis",
+        "evidence_type": "DIAGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POSITIVE",
+        "claim": "Young AML patients (<60 years old) with DNMT3A mutations (60% of which were R882) were older in age, had higher white blood cell counts and had higher platelet counts than patients wildtype for DNMT3A.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:22490330",
+          "citation": "Mutant DNMT3A: a marker of poor prognosis in acute myeloid leukemia.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/22490330/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID31",
+        "output": "diagnosis",
+        "evidence_type": "DIAGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POSITIVE",
+        "claim": "DNMT3A R882 mutations were associated with older age, higher white blood cell count, and FAB M4 and M5 subtypes compared to wildtype DNMT3A in a cohort of cytogenetically normal AML patients.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:24512939",
+          "citation": "DNMT3A R882 mutations in patients with cytogenetically normal acute myeloid leukemia and myelodysplastic syndrome.",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24512939/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID49",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "DOES_NOT_SUPPORT",
+        "significance": "NA",
+        "claim": "In a large cohort of AML patients (mean = 48 years), DNMT3A mutation (64.5% of which were R882) had no prognostic value on overall, relapse free and event free survival.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:23632886",
+          "citation": "Clinical impact of DNMT3A mutations in younger adult patients with acute myeloid leukemia: results of the AML Study Group (AMLSG).",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23632886/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID50",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "DOES_NOT_SUPPORT",
+        "significance": "POOR_OUTCOME",
+        "claim": "In a large cohort (n=1770) of AML patients (18-60 years old), DNMT3A mutation status (65.4% of which were R882) had no prognostic value for overall, relapse free and event free survival. This was true for cytogenetically normal AML and the entire cohort.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:23632886",
+          "citation": "Clinical impact of DNMT3A mutations in younger adult patients with acute myeloid leukemia: results of the AML Study Group (AMLSG).",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23632886/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID61",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "In a large cohort of young AML patients (18-60 years old), DNMT3A R882 mutations were associated with reduced relapse free survival in the entire cohort as well as the subset of patients with cytogenetically normal AML.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:23632886",
+          "citation": "Clinical impact of DNMT3A mutations in younger adult patients with acute myeloid leukemia: results of the AML Study Group (AMLSG).",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23632886/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID63",
+        "output": "prognosis",
+        "evidence_type": "PROGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "POOR_OUTCOME",
+        "claim": "DNMT3A R882 mutation was associated with reduced relapse free and overall survival in ELN-unfavorable, cytogenetically normal AMLs.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:23632886",
+          "citation": "Clinical impact of DNMT3A mutations in younger adult patients with acute myeloid leukemia: results of the AML Study Group (AMLSG).",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23632886/",
+          "provenance": "live_civic"
+        }
+      },
+      {
+        "id": "CIViC:EID110",
+        "output": "diagnosis",
+        "evidence_type": "DIAGNOSTIC",
+        "evidence_level": "B",
+        "direction": "SUPPORTS",
+        "significance": "NEGATIVE",
+        "claim": "Therapy-related AML was less common in patients with DNMT3A mutations (64.5% of which were R882) than patients wildtype for DNMT3A in a large cohort of younger (18-60) AML patients.",
+        "molecular_profile": "DNMT3A R882",
+        "disease": "Acute Myeloid Leukemia",
+        "therapies": [],
+        "source": {
+          "id": "PMID:23632886",
+          "citation": "Clinical impact of DNMT3A mutations in younger adult patients with acute myeloid leukemia: results of the AML Study Group (AMLSG).",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23632886/",
+          "provenance": "live_civic"
+        }
+      }
+    ]
+  },
+  "trials": [
+    {
+      "id": "NCT:NCT07096297",
+      "output": "therapy",
+      "title": "Luspatercept + Darbepoetin in MDS",
+      "status": "RECRUITING",
+      "phase": "PHASE2",
+      "source": {
+        "id": "NCT07096297",
+        "citation": "ClinicalTrials.gov NCT07096297",
+        "url": "https://clinicaltrials.gov/study/NCT07096297",
+        "provenance": "live_clinicaltrials"
+      }
+    },
+    {
+      "id": "NCT:NCT06956755",
+      "output": "therapy",
+      "title": "Registry of Myelodysplastic Syndromes and Therapy-related Acute Myeloid Leukemia",
+      "status": "RECRUITING",
+      "phase": "",
+      "source": {
+        "id": "NCT06956755",
+        "citation": "ClinicalTrials.gov NCT06956755",
+        "url": "https://clinicaltrials.gov/study/NCT06956755",
+        "provenance": "live_clinicaltrials"
+      }
+    },
+    {
+      "id": "NCT:NCT05924074",
+      "output": "therapy",
+      "title": "Ferroptosis Study in SF3B1-mutant Myelodysplastic Syndromes (FerMDS)",
+      "status": "RECRUITING",
+      "phase": "NA",
+      "source": {
+        "id": "NCT05924074",
+        "citation": "ClinicalTrials.gov NCT05924074",
+        "url": "https://clinicaltrials.gov/study/NCT05924074",
+        "provenance": "live_clinicaltrials"
+      }
+    },
+    {
+      "id": "NCT:NCT06972641",
+      "output": "therapy",
+      "title": "Molecular Genetics Guide the Maintenance Therapy After Allogeneic Hematopoietic Stem Cell Transplantation",
+      "status": "RECRUITING",
+      "phase": "PHASE2, PHASE3",
+      "source": {
+        "id": "NCT06972641",
+        "citation": "ClinicalTrials.gov NCT06972641",
+        "url": "https://clinicaltrials.gov/study/NCT06972641",
+        "provenance": "live_clinicaltrials"
+      }
+    },
+    {
+      "id": "NCT:NCT06510868",
+      "output": "therapy",
+      "title": "Evaluating Myelodysplastic Syndrome Risks in NET Patients Planned for Peptide Radionuclide Therapy",
+      "status": "RECRUITING",
+      "phase": "",
+      "source": {
+        "id": "NCT06510868",
+        "citation": "ClinicalTrials.gov NCT06510868",
+        "url": "https://clinicaltrials.gov/study/NCT06510868",
+        "provenance": "live_clinicaltrials"
+      }
+    },
+    {
+      "id": "NCT:NCT04251078",
+      "output": "therapy",
+      "title": "Monitoring Mutational Burden in Low Risk MDS Patients Using Sequential Peripheral Blood Samples",
+      "status": "RECRUITING",
+      "phase": "",
+      "source": {
+        "id": "NCT04251078",
+        "citation": "ClinicalTrials.gov NCT04251078",
+        "url": "https://clinicaltrials.gov/study/NCT04251078",
+        "provenance": "live_clinicaltrials"
+      }
+    },
+    {
+      "id": "NCT:NCT06785077",
+      "output": "therapy",
+      "title": "Genetic Landscape in Women with Metastatic Ovarian Cancer Before and During Treatment with PARP Inhibitors",
+      "status": "RECRUITING",
+      "phase": "NA",
+      "source": {
+        "id": "NCT06785077",
+        "citation": "ClinicalTrials.gov NCT06785077",
+        "url": "https://clinicaltrials.gov/study/NCT06785077",
+        "provenance": "live_clinicaltrials"
+      }
+    }
+  ],
+  "unassessed": [],
+  "valid_citation_ids": [
+    "CIViC:EID10139",
+    "CIViC:EID11",
+    "CIViC:EID110",
+    "CIViC:EID112",
+    "CIViC:EID1417",
+    "CIViC:EID1418",
+    "CIViC:EID157",
+    "CIViC:EID1585",
+    "CIViC:EID1586",
+    "CIViC:EID18",
+    "CIViC:EID187",
+    "CIViC:EID24",
+    "CIViC:EID25",
+    "CIViC:EID31",
+    "CIViC:EID4",
+    "CIViC:EID469",
+    "CIViC:EID49",
+    "CIViC:EID50",
+    "CIViC:EID51",
+    "CIViC:EID61",
+    "CIViC:EID62",
+    "CIViC:EID63",
+    "CIViC:EID64",
+    "CIViC:EID65",
+    "CIViC:EID66",
+    "CIViC:EID67",
+    "CIViC:EID68",
+    "CIViC:EID7228",
+    "NCT:NCT04251078",
+    "NCT:NCT05924074",
+    "NCT:NCT06510868",
+    "NCT:NCT06785077",
+    "NCT:NCT06956755",
+    "NCT:NCT06972641",
+    "NCT:NCT07096297",
+    "ipssm-overview",
+    "ipssm-sf3b1-favourable"
+  ]
+}
